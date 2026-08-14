@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   currentPath = '';
 
   navItems = [
-    { name: 'TrustBridge', path: '/trustbridge' },
     { name: 'SLM Factory', path: '/slm-factory' },
     { name: 'Platform', path: '/platform' },
     { name: 'About', path: '/about' }
