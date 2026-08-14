@@ -1,0 +1,18 @@
+@if (routerLink) {
+  <a
+    class="cx-cta__control"
+    [routerLink]="routerLink"
+    [attr.aria-disabled]="disabled ? true : null"
+    [tabindex]="disabled ? -1 : null"
+  >
+    <ng-content />
+  </a>
+} @else if (href) {
+  <a class="cx-cta__control" [href]="href" [attr.aria-disabled]="disabled ? true : null">
+    <ng-content />
+  </a>
+} @else {
+  <button class="cx-cta__control" [type]="type" [disabled]="disabled">
+    <ng-content />
+  </button>
+}

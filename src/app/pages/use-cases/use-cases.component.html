@@ -1,0 +1,155 @@
+<!-- Hero Section -->
+<section class="hero-section relative min-h-[80vh] md:min-h-[100vh] flex items-center overflow-hidden py-16 md:py-20">
+  <!-- Particle Canvas Background -->
+  <canvas #particleCanvas class="particle-canvas"></canvas>
+  
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-hero-gradient"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+  
+  <!-- Animated Orbs -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-glow-secondary/20 rounded-full blur-[100px] animate-pulse-slow" style="animation-delay: 1s;"></div>
+
+  <div class="container mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto text-center fade-in-up">
+      <h1 class="text-4xl sm:text-6xl md:text-6xl font-bold font-display mb-6">
+        Industry <span class="gradient-text">Use Cases</span>
+      </h1>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+        Discover how leading enterprises leverage DIOnce AI to transform their operations across industries
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Use Cases Grid -->
+<section class=" md:py-20 relative">
+  <div class="absolute inset-0 bg-radial-gradient opacity-50"></div>
+  
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="use-cases-list">
+      <div *ngFor="let useCase of useCases; let index = index" 
+           class="glass-card-hover p-4 md:p-6 scale-in "
+           [style.animation-delay]="(index * 0.12) + 's'">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <div class="lg:w-1/3">
+            <div class="use-case-icon-wrapper flex items-center justify-center mb-4"
+                 [style.background]="getGradientStyle(useCase.color)">
+              <i [class]="useCase.icon" class="text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold font-display text-foreground mb-3">
+              {{ useCase.title }}
+            </h3>
+            <p class="text-base md:text-md text-lg text-muted-foreground leading-relaxed">
+              {{ useCase.description }}
+            </p>
+          </div>
+          <div class="lg:w-2/3 lg:pl-8 key-capabilities-border">
+            <h4 class="   text-sm font-semibold text-primary uppercase tracking-wider mt-12 mb-4">
+              Key Capabilities
+            </h4>
+            <ul class="space-y-3">
+              <li *ngFor="let cap of useCase.capabilities" class="flex  gap-3">
+                <i class="fa-regular fa-check-circle text-primary shrink-0 mt-0.5" style="font-size: 20px;"></i>
+                <span class="text-foreground">{{ cap }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Success Stories Section -->
+<section class="py-16 md:py-20 relative overflow-hidden">
+  <!-- Background elements -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-15"></div>
+  <div class="absolute inset-0 bg-radial-gradient opacity-50"></div>
+  
+  <div class="container mx-auto px-6 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-20 fade-in-up">
+      <h2 class="section-title mb-4">
+        Success <span class="gradient-text">Stories</span>
+      </h2>
+      <p class="mx-auto">
+        Real results from industry leaders who transformed their operations
+      </p>
+    </div>
+
+    <div class="max-w-6xl mx-auto space-y-24 px-4 md:px-0">
+      <!-- Story 1 -->
+      <div *ngFor="let story of successStories; let index = index"
+           class="flex flex-col lg:flex-row items-center gap-12 scale-in"
+           [class.flex-row-reverse]="!story.alignLeft"
+           [style.animation-delay]="(index * 0.12) + 's'">
+        <div class="lg:w-1/2 flex justify-center order-2 lg:order-1"
+             [class.lg:order-2]="story.alignLeft"
+             [class.lg:order-1]="!story.alignLeft"
+             [class.lg:justify-end]="story.alignLeft"
+             [class.lg:justify-start]="!story.alignLeft">
+          <div class="text-center hidden md:block">
+            <div class="text-5xl md:text-6xl font-bold font-display gradient-text mb-2">{{ story.stats[0].value }}</div>
+            <div class="text-sm text-muted-foreground uppercase tracking-wide">{{ story.stats[0].label }}</div>
+          </div>
+        </div>
+        <!-- Content Section: Right when alignLeft=false (2nd story), Left when alignLeft=true -->
+        <div class="lg:w-1/2 relative order-1 lg:order-2"
+             [class.lg:order-1]="story.alignLeft"
+             [class.lg:order-2]="!story.alignLeft"
+             [class.lg:text-right]="!story.alignLeft">
+          <span class="text-[180px] md:text-[220px] font-bold font-display text-primary opacity-15 leading-none select-none absolute -top-16"
+                [class.-left-8]="story.alignLeft"
+                [class.-right-8]="!story.alignLeft">
+            {{ story.number }}
+          </span>
+          <div class="relative z-10" [class.pl-4]="story.alignLeft" [class.pr-4]="!story.alignLeft">
+            <div class="text-sm font-semibold text-primary uppercase tracking-widest mb-2">
+              {{ story.category }}
+            </div>
+            <h3 class="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
+              {{ story.title }}
+            </h3>
+            <p class="text-muted-foreground text-lg leading-relaxed mb-6">
+              {{ story.description }}
+            </p>
+            <div class="flex items-center gap-4" [class.lg:justify-end]="!story.alignLeft">
+              <div class="w-12 h-12 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                <i [class]="story.icon" class="text-primary text-xl"></i>
+              </div>
+              <div [class.lg:text-left]="!story.alignLeft">
+                <div class="font-semibold text-foreground">{{ story.role }}</div>
+                <div class="text-sm text-muted-foreground">{{ story.company }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-20 md:py-28 relative overflow-hidden bg-card/50">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-card to-background"></div>
+  <div class="absolute inset-0 opacity-0 animate-fade-in">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center scale-in relative z-40">
+      <h2 class="section-title mb-6">
+        Ready to Transform <span class="gradient-text">Your Industry?</span>
+      </h2>
+      <p class="text-lg text-muted-foreground mb-10">
+        Discover how DIOnce AI can accelerate your business
+      </p>
+      <a routerLink="/contact" (click)="navigateToContact()" class="cta-button cursor-pointer">
+        Get In Touch
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+/**
+ * Marks unverified figures/copy until sourced. Requires data-ph-note for the hover explanation.
+ */
+.ph {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--marigold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  cursor: help;
+  position: relative;
+
+  &[data-ph-note]::after {
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    top: calc(100% + var(--space-2));
+    min-width: 12rem;
+    max-width: 20rem;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    background-color: var(--petrol-800);
+    border: 1px solid color-mix(in srgb, var(--marigold) 45%, transparent);
+    color: var(--chalk-1);
+    font-family: var(--cx-font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: normal;
+    content: attr(data-ph-note);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(var(--space-1));
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:host.cx-page.cx-page--ph-audit .ph {
+  outline: 2px dashed var(--marigold);
+  outline-offset: 3px;
+  background-color: color-mix(in srgb, var(--marigold) 12%, transparent);
+}

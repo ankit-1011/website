@@ -1,0 +1,196 @@
+<!-- Hero Section -->
+<section class="hero-section relative md:py-32 sm:py-24 pt-32 pb-24 min-h-[70vh] md:min-h-[100vh] flex items-center overflow-hidden">
+  <canvas #particleCanvas class="particle-canvas"></canvas>
+
+  <div class="absolute inset-0 bg-hero-gradient"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto text-center fade-in-up">
+      <span class="contact-eyebrow">Request Demo</span>
+      <h1 class="contact-hero-title mb-6">
+        Get In Touch
+      </h1>
+      <p class="contact-lede mx-auto text-center">
+        Ready to transform your workflows with Agentic AI? Let's discuss how DIOnce can help accelerate your AI initiatives.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact-form" class="py-24 md:py-32 relative">
+  <div class="absolute inset-0 bg-radial-gradient opacity-50"></div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto">
+      <!-- Contact Form -->
+      <div class="scale-in">
+        <span class="contact-eyebrow">Contact</span>
+        <h2 class="contact-heading mb-8">
+          Request a Demo
+        </h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+          <div class="space-y-2">
+            <label for="name" class="contact-label">
+              Full Name
+            </label>
+            <div class="relative">
+              <i class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                placeholder="John Doe"
+                required
+                class="w-full pl-10 pr-4 py-3 focus:outline-none transition-colors"
+                [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+              />
+            </div>
+            <span class="error-message text-red-500" *ngIf="getFieldError('name')">
+              {{ getFieldError('name') }}
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <label for="email" class="contact-label">
+              Work Email
+            </label>
+            <div class="relative">
+              <i class="fa-solid fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                placeholder="john@company.com"
+                required
+                class="w-full pl-10 pr-4 py-3 focus:outline-none transition-colors"
+                [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+              />
+            </div>
+            <span class="error-message text-red-500" *ngIf="getFieldError('email')">
+              {{ getFieldError('email') }}
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <label for="company" class="contact-label">
+              Company
+            </label>
+            <div class="relative">
+              <i class="fa-solid fa-building absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+              <input
+                type="text"
+                id="company"
+                formControlName="company"
+                placeholder="Your Company"
+                required
+                class="w-full pl-10 pr-4 py-3 focus:outline-none transition-colors"
+                [class.error]="contactForm.get('company')?.invalid && contactForm.get('company')?.touched"
+              />
+            </div>
+            <span class="error-message text-red-500" *ngIf="getFieldError('company')">
+              {{ getFieldError('company') }}
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <label for="message" class="contact-label">
+              Message
+            </label>
+            <div class="relative">
+              <i class="fa-solid fa-message absolute left-3 top-[19px] text-muted-foreground"></i>
+              <textarea
+                id="message"
+                formControlName="message"
+                placeholder="Tell us about your AI initiatives and how we can help..."
+                rows="5"
+                required
+                class="w-full pl-10 pr-4 py-3 focus:outline-none transition-colors resize-none"
+                [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+              ></textarea>
+            </div>
+            <span class="error-message text-red-500" *ngIf="getFieldError('message')">
+              {{ getFieldError('message') }}
+            </span>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="isSubmitting || contactForm.invalid"
+            class="contact-btn contact-btn--pri"
+            [attr.aria-label]="contactForm.invalid ? 'Please fill all fields to send message' : 'Send message'"
+          >
+            <span *ngIf="!isSubmitting">
+              Send Message
+              <i class="fa-solid fa-paper-plane"></i>
+            </span>
+            <span *ngIf="isSubmitting">
+              Sending...
+              <i class="fa-solid fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-8 scale-in" style="animation-delay: 0.12s;">
+        <div>
+          <span class="contact-eyebrow">Reach Us</span>
+          <h2 class="contact-heading mb-8">
+            Contact Information
+          </h2>
+          <div class="space-y-6">
+            <div *ngFor="let info of contactInfo" class="flex items-start gap-4">
+              <div class="feature-icon shrink-0">
+                <i [class]="info.icon"></i>
+              </div>
+              <div>
+                <div class="contact-caption mb-1">
+                  {{ info.label }}
+                </div>
+                <a
+                  *ngIf="info.href"
+                  [href]="info.href"
+                  class="contact-value"
+                >
+                  {{ info.value }}
+                </a>
+                <div *ngIf="!info.href" class="contact-value">
+                  {{ info.value }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 mt-8 scale-in" style="animation-delay: 0.24s;">
+          <h3 class="contact-subheading mb-4">
+            Why Choose DIOnce AI?
+          </h3>
+          <ul class="space-y-3 contact-list">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle text-xs text-[#00E6FF]"></i>
+              Production-ready in under 1 hour
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle text-xs text-[#00E6FF]"></i>
+              100% reliability guarantee
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle text-xs text-[#00E6FF]"></i>
+              75% productivity gains
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle text-xs text-[#00E6FF]"></i>
+              Enterprise-grade security
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle text-xs text-[#00E6FF]"></i>
+              24/7 dedicated support
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

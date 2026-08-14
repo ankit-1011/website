@@ -1,0 +1,167 @@
+.use-cases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .glass-card-hover {
+    box-shadow: none !important;
+    
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.key-capabilities-border {
+  @media (min-width: 1024px) {
+    position: relative;
+    padding-left: 2rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: hsl(var(--border));
+      filter: blur(0.3px);
+      opacity: 0.7;
+    }
+  }
+}
+
+.use-case-icon-wrapper {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+// Additional utility classes for spacing
+.space-y-3 {
+  > * + * {
+    margin-top: 0.75rem;
+  }
+}
+
+.space-y-8 {
+  > * + * {
+    margin-top: 2rem;
+  }
+}
+
+.lg\:w-1\/3 {
+  @media (min-width: 1024px) {
+    width: 33.333333%;
+  }
+}
+
+.lg\:w-2\/3 {
+  @media (min-width: 1024px) {
+    width: 66.666667%;
+  }
+}
+
+.lg\:pl-8 {
+  @media (min-width: 1024px) {
+    padding-left: 2rem;
+  }
+}
+
+.lg\:border-l {
+  @media (min-width: 1024px) {
+    border-left-width: 1px;
+  }
+}
+
+.lg\:flex-row {
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.min-h-\[60vh\] {
+  min-height: 60vh;
+}
+
+.pt-32 {
+  padding-top: 8rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@media (min-width: 640px) {
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .sm\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:p-10 {
+    padding: 2.5rem;
+  }
+  
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// Mobile padding for Success Stories section
+@media (max-width: 640px) {
+  section {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}

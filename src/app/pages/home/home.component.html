@@ -1,0 +1,216 @@
+<!-- Hero Section -->
+<section class=" relative min-h-[90vh] flex items-center overflow-hidden pt-32">
+  <!-- Particle Canvas Background -->
+  <canvas #particleCanvas class="particle-canvas"></canvas>
+
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-hero-gradient"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+
+  <!-- Animated Orbs -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-glow-secondary/20 rounded-full blur-[100px] animate-pulse-slow"
+    style="animation-delay: 1s;"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 fade-in-up">
+        <i class="fa-solid fa-wand-magic-sparkles text-primary"></i>
+        <span class="text-sm text-muted-foreground">Agentic AI Platform</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight mb-6 fade-in-up"
+        style="animation-delay: 0.1s;">
+        Build, Test, Deploy & Monitor <span class="gradient-text">AI Workflows</span> Under 1 Hour
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 fade-in-up"
+        style="animation-delay: 0.2s;">
+        Build autonomous AI agents and workflows with our unified platform. From concept to production in record time.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-in-up"
+        style="animation-delay: 0.3s;">
+        <a (click)="navigateToPlatform()" class="cta-button text-base px-4 py-4 gap-2 flex items-center cursor-pointer">
+          Explore Platform
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a routerLink="/contact" class="cta-button-outline text-base px-4 py-4">
+          Request Demo
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto fade-in-up hero-stats" style="animation-delay: 0.4s;">
+        <div *ngFor="let stat of stats; let i = index"
+          class="glass-card p-6 text-center group hover:border-primary/50 transition-all duration-300 scale-in"
+          [style.animation-delay]="(0.5 + i * 0.12) + 's'">
+          <i [class]="heroStats[i].icon"
+            class="w-6 h-6 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
+          <div class="stat-number text-3xl md:text-4xl mb-1">{{ stat.displayValue }}</div>
+          <div class="text-muted-foreground text-sm">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-16 md:py-24 relative">
+  <div class="absolute inset-0 bg-radial-gradient opacity-50"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 fade-in-up">
+      <h2 class="section-title mb-4">
+        <span class="gradient-text">Agentic Platform</span>
+      </h2>
+      <p class=" mx-auto">
+        Everything you need to build, deploy, and manage AI agents in one unified platform
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div *ngFor="let feature of features; let i = index" class="bento-item group scale-in p-6"
+        [style.animation-delay]="(i * 0.12) + 's'">
+        <div class="feature-icon group-hover:scale-110 transition-transform duration-300">
+          <i [class]="feature.icon "></i>
+        </div>
+        <h3 class="text-xl font-semibold font-display text-foreground mb-2">
+          {{ feature.title }}
+        </h3>
+        <p class="text-muted-foreground leading-relaxed">
+          {{ feature.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lifecycle Section -->
+<section class="lifecycle-section  md:py-24 bg-card/50 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]">
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left Content -->
+      <div class="slide-in-left">
+        <h2 class="section-title mb-6">
+          Complete Agent <span class="gradient-text">Lifecycle Management</span>
+        </h2>
+        <p class="text-muted-foreground text-lg leading-relaxed mb-8">
+          DIOnce AI unifies every stage of the agent lifecycle from design to deployment.
+          Build autonomous & semi-autonomous agents with our visual workflow studio,
+          manage them through our orchestration layer, and monitor performance with real-time analytics.
+        </p>
+
+        <!-- Capability Tags -->
+        <div class="flex flex-wrap gap-3">
+          <div *ngFor="let cap of capabilities; let i = index"
+            class="capability-tag flex items-center gap-2 px-4 py-2 glass-card text-sm slide-in-left"
+            [style.animation-delay]="(0.2 + i * 0.08) + 's'">
+            <i [class]="cap.icon" class="text-primary"></i>
+            <span class="text-foreground">{{ cap.label }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="relative slide-in-right  md:ml-12">
+        <div class="aspect-square max-w-md mx-auto relative">
+          <!-- Central Hub -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-full h-full animate-spin-slow">
+              <div class="absolute inset-10 rounded-full border border-border/50"></div>
+              <div class="absolute inset-20 rounded-full border border-primary/30"></div>
+              <div class="absolute inset-32 rounded-full border border-primary/50"></div>
+            </div>
+
+            <!-- Center Logo -->
+            <div
+              class="absolute w-24 h-24 rounded-2xl  from-primary to-glow-secondary flex items-center justify-center shadow-lg shadow-primary/30">
+              <span class="text-3xl font-bold text-primary-foreground font-display">
+                <img
+                  src="https://static.wixstatic.com/media/fd4336_dcbf91fb2d28461c8f6599ec7e158a66~mv2.png/v1/fill/w_89,h_90,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_Updated(7)_edited.png"
+                  alt="DIOnce AI Logo" class="w-28 size-28 h-25 p-2 scale-x-[-1]" />
+              </span>
+            </div>
+          </div>
+
+          <!-- Orbiting Nodes -->
+          <div *ngFor="let cap of capabilities.slice(0, 6); let i = index"
+            class="absolute w-12 h-12 glass-card flex items-center justify-center orbiting-node"
+            [style.left.%]="getOrbitingNodePosition(i, 6).left" [style.top.%]="getOrbitingNodePosition(i, 6).top"
+            [style.transform]="'translate(-50%, -50%)'" [style.animation-delay]="(i * 0.3) + 's'">
+            <i [class]="cap.icon" class="text-primary"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-28 md:py-32 relative">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 fade-in-up">
+      <h2 class="section-title mb-4">
+        What Our <span class="gradient-text">Customers Say</span>
+      </h2>
+      <p class=" mx-auto">
+        Trusted by leading companies worldwide
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div *ngFor="let testimonial of testimonials; let i = index" class="glass-card-hover p-8 flex flex-col scale-in"
+        [style.animation-delay]="(i * 0.12) + 's'">
+        <i class="fa fa-quote-right fa-2xl text-blue-400 mb-8"></i>
+        <p class="text-foreground text-lg leading-relaxed flex-1 mb-6">
+          "{{ testimonial.quote }}"
+        </p>
+        <hr class="opacity-15">
+        <div class=" border-border pt-4">
+          <div class="font-semibold text-foreground">{{ testimonial.author }}</div>
+          <div class="text-muted-foreground text-sm">{{ testimonial.company }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-24 md:py-32 relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-card to-background"></div>
+  <div class="absolute inset-0 opacity-0 animate-fade-in">
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]">
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center scale-in relative z-40">
+      <h2 class="section-title mb-6">
+        Ready to Transform <span class="gradient-text">Your Workflows?</span>
+      </h2>
+      <p class="text-lg text-muted-foreground mb-10">
+        Join leading companies using DIOnce AI to accelerate their AI initiatives
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a (click)="navigateToContact()" class="cta-button text-base px-4 py-4 gap-2 flex items-center cursor-pointer">
+          Get Started
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a (click)="navigateToPlatform()" class="cta-button-outline text-base px-6 py-4 cursor-pointer">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

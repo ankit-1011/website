@@ -1,0 +1,17 @@
+/* Above-the-fold: display (Bricolage 600) + body (Instrument Sans 400) */
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/cx/fonts/bricolage-grotesque-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/cx/fonts/instrument-sans-latin-400-normal.woff2') format('woff2');
+}

@@ -1,0 +1,80 @@
+<header [class.scrolled]="isScrolled" [class.hero-hidden]="!isHeroVisible"
+  class="fixed top-0 left-0 right-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border header-transition">
+  <div class="container mx-auto px-4 py-2 md:py-0 sm:px-6 lg:px-16 ">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center font-bold text-2xl" (click)="scrollToTop()" aria-label="DIOnce AI - Home">
+        <img
+          src="https://static.wixstatic.com/media/fd4336_dcbf91fb2d28461c8f6599ec7e158a66~mv2.png/v1/fill/w_89,h_90,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_Updated(7)_edited.png"
+          alt="DIOnce AI Logo" class="w-20 h-13 p-2" />
+        <span class="logo-text">DIOnce.</span>
+        <span class="logo-ai text-[#00E6FF]">AI</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Main">
+        <a routerLink="/cx-solutions" (click)="scrollToTop()"
+          class="relative overflow-hidden h-6 group text-base font-semibold"
+          [class.text-cyan-400]="isCxActive()"
+          aria-label="View Customer Experience">
+          <span class="block hover:text-cyan-400">Customer Experience</span>
+        </a>
+        <a routerLink="/trustbridge" (click)="scrollToTop()"
+          class="relative overflow-hidden h-6 group text-base font-semibold"
+          [class.text-cyan-400]="isActive('/trustbridge')"
+          aria-label="View TrustBridge">
+          <span class="block hover:text-cyan-400">TrustBridge</span>
+        </a>
+        <a routerLink="/slm-factory" (click)="scrollToTop()"
+          class="relative overflow-hidden h-6 group text-base font-semibold"
+          [class.text-cyan-400]="isActive('/slm-factory')"
+          aria-label="View SLM Factory">
+          <span class="block hover:text-cyan-400">SLM Factory</span>
+        </a>
+        <a routerLink="/platform" (click)="scrollToTop()"
+          class="relative overflow-hidden h-6 group text-base font-semibold"
+          [class.text-cyan-400]="isActive('/platform')"
+          aria-label="View DIOnce AI Platform">
+          <span class="block hover:text-cyan-400">Platform</span>
+        </a>
+        <a routerLink="/about" (click)="scrollToTop()"
+          class="relative overflow-hidden h-6 group text-base font-semibold"
+          [class.text-cyan-400]="isActive('/about')"
+          aria-label="Learn About DIOnce AI">
+          <span class="block hover:text-cyan-400">About</span>
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex items-center gap-4">
+        <a routerLink="/contact" (click)="scrollToTop()" class="cta-button" aria-label="Request a Demo of DIOnce AI Platform">
+          Request Demo
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden p-2 text-foreground" (click)="toggleMobileMenu()"
+        [attr.aria-label]="mobileMenuOpen ? 'Close menu' : 'Open menu'">
+        <i *ngIf="!mobileMenuOpen" class="fa-solid fa-bars text-xl"></i>
+        <i *ngIf="mobileMenuOpen" class="fa-solid fa-x text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileMenuOpen" class="md:hidden bg-card border-b py-2 border-border mobile-menu">
+    <nav class="container mx-auto px-4 py-4 flex flex-col gap-2" aria-label="Main mobile">
+      <a routerLink="/cx-solutions" (click)="closeMobileMenu(); scrollToTop()"
+        [class.nav-link-active]="isCxActive()" class="nav-link text-lg">
+        Customer Experience
+      </a>
+      <a *ngFor="let item of navItems" [routerLink]="item.path" (click)="closeMobileMenu(); scrollToTop()"
+        [class.nav-link-active]="isActive(item.path)" class="nav-link text-lg">
+        {{ item.name }}
+      </a>
+      <a routerLink="/contact" (click)="closeMobileMenu(); scrollToTop()" class="cta-button w-full mt-2">
+        Request Demo
+      </a>
+    </nav>
+  </div>
+</header>

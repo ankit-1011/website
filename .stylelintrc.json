@@ -1,0 +1,30 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": ["**/node_modules/**", "**/dist/**"],
+  "overrides": [
+    {
+      "files": ["**/pages/cx/design-tokens/_cx-primitives.scss"],
+      "rules": {
+        "color-no-hex": null
+      }
+    },
+    {
+      "files": ["**/pages/cx/fonts/**"],
+      "rules": {
+        "color-no-hex": null,
+        "font-family-name-quotes": null,
+        "function-url-quotes": null
+      }
+    }
+  ],
+  "rules": {
+    "color-no-hex": true,
+    "color-function-alias-notation": null,
+    "alpha-value-notation": null,
+    "media-feature-range-notation": null,
+    "color-hex-length": null,
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "no-descending-specificity": null
+  }
+}

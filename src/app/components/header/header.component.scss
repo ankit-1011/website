@@ -1,0 +1,227 @@
+header {
+  &.scrolled {
+    background: hsl(var(--background) / 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom-color: hsl(var(--primary) / 0.2);
+  }
+}
+
+.header-transition {
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              visibility 0.8s;
+  will-change: opacity, transform;
+}
+
+header.hero-hidden {
+  opacity: 0 !important;
+  transform: translateY(-120%) !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.bg-background\/80 {
+  background: hsl(var(--background) / 0.8);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.border-border\/50 {
+  border-color: hsl(var(--border) / 0.5);
+}
+
+.text-foreground {
+  color: hsl(var(--foreground));
+}
+
+.text-primary {
+  color: hsl(var(--primary));
+}
+
+.bg-card {
+  background: hsl(var(--card));
+}
+
+.border-border {
+  border-color: hsl(var(--border));
+}
+
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, hsl(var(--primary)), hsl(var(--glow-secondary)));
+}
+
+.from-primary {
+  --tw-gradient-from: hsl(var(--primary));
+}
+
+.to-glow-secondary {
+  --tw-gradient-to: hsl(var(--glow-secondary));
+}
+
+.text-primary-foreground {
+  color: hsl(var(--primary-foreground));
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.nav-link {
+  color: var(--white);
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+  position: relative;
+  text-decoration: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: hsl(var(--primary));
+    transition: transform var(--transition-fast);
+  }
+  
+  &:hover:not(.nav-link-active) {
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+  
+  &.nav-link-active {
+    color: hsl(var(--primary));
+    background: none;
+    
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: hsl(var(--primary));
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: hsl(var(--primary));
+    color: #fff;
+    box-shadow: 0 0 24px -6px hsl(var(--primary) / 0.45);
+    transform: scale(1.02);
+  }
+
+  &.w-full {
+    width: 100%;
+  }
+}
+
+.mobile-menu {
+  animation: slideDown 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-link {
+    padding: var(--spacing-sm) 0;
+    width: 100%;
+    text-align: left;
+
+    &.nav-link--sub {
+      padding-left: var(--spacing-md);
+      font-size: 0.9375rem;
+    }
+    
+    &::after {
+      display: none !important;
+    }
+    
+    &:hover::after,
+    &:active::after,
+    &:focus::after {
+      display: none !important;
+    }
+  }
+}
+
+.cx-mobile-mega__kicker {
+  margin: 0.75rem 0 0.35rem;
+  padding-left: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 45%);
+}
+
+.cx-mobile-mega__item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem 0.25rem;
+  border-radius: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    background: rgb(255 255 255 / 6%);
+  }
+}
+
+.cx-mobile-mega__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 0.45rem;
+  font-size: 0.75rem;
+  color: #00e6ff;
+}
+
+.cx-mobile-mega__title {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cx-mobile-mega__desc {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: rgb(255 255 255 / 50%);
+}

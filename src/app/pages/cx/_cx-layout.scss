@@ -1,0 +1,42 @@
+/**
+ * Section layout primitives — .wrap, .sec, theme variants, tight spacing.
+ * Padding is always on .sec (never margin-block) so adjacent sections cannot collapse spacing.
+ */
+
+.sec {
+  display: flow-root;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  padding-block: var(--sec-y);
+  background-color: var(--cx-section-bg);
+  color: var(--cx-section-text);
+  scroll-margin-top: var(--cx-scroll-margin);
+
+  @media (max-width: 768px) {
+    padding-block: var(--sec-y-compact);
+  }
+
+  &.sec--tight {
+    padding-block: var(--sec-y-tight);
+
+    @media (max-width: 768px) {
+      padding-block: var(--sec-y-tight-compact);
+    }
+  }
+}
+
+.wrap {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+.cx-nav-anchor {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  scroll-margin-top: var(--cx-scroll-margin);
+}

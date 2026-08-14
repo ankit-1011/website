@@ -1,0 +1,121 @@
+<div class="ai-chat" [class.ai-chat--open]="chatOpen()">
+  @if (chatOpen()) {
+    <button type="button" class="ai-chat__backdrop" (click)="closeChat()" aria-label="Close chat"></button>
+
+    <div
+      id="ai-chat-panel"
+      class="ai-chat__panel"
+      role="dialog"
+      aria-labelledby="ai-chat-title"
+      aria-modal="true"
+    >
+      <div class="ai-chat__panel-shine" aria-hidden="true"></div>
+      <div class="ai-chat__panel-grid" aria-hidden="true"></div>
+
+      <header class="ai-chat__head">
+        <div class="ai-chat__brand">
+          <img
+            class="ai-chat__logo"
+            src="https://static.wixstatic.com/media/fd4336_dcbf91fb2d28461c8f6599ec7e158a66~mv2.png/v1/fill/w_89,h_90,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_Updated(7)_edited.png"
+            alt=""
+            width="44"
+            height="44"
+          />
+          <div class="ai-chat__head-text">
+            <h2 id="ai-chat-title" class="ai-chat__title">
+              <span class="ai-chat__title-brand">DIOnce.</span><span class="ai-chat__title-ai">AI</span>
+            </h2>
+          </div>
+        </div>
+        <button type="button" class="ai-chat__close" (click)="closeChat()" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
+        </button>
+      </header>
+
+      <div class="ai-chat__messages" #messagesEl>
+        @for (msg of messages(); track $index) {
+          <div
+            class="ai-chat__row"
+            [class.ai-chat__row--user]="msg.role === 'user'"
+          >
+            @if (msg.role === 'assistant') {
+              <span class="ai-chat__msg-av" aria-hidden="true">AI</span>
+            }
+            <div
+              class="ai-chat__msg"
+              [class.ai-chat__msg--user]="msg.role === 'user'"
+              [class.ai-chat__msg--assistant]="msg.role === 'assistant'"
+            >
+              <p>{{ msg.text }}</p>
+              @if (msg.actions?.length) {
+                <div class="ai-chat__actions">
+                  @for (action of msg.actions; track action.route + action.label) {
+                    <a
+                      [routerLink]="action.route"
+                      class="ai-chat__action"
+                      [class.ai-chat__action--pri]="action.primary"
+                      (click)="closeChat()"
+                    >
+                      {{ action.label }}
+                    </a>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+        <div #messagesEnd class="ai-chat__scroll-anchor" aria-hidden="true"></div>
+      </div>
+
+      <form class="ai-chat__composer" (submit)="onChatSubmit($event)">
+        <label class="visually-hidden" for="ai-chat-input">Message</label>
+        <div class="ai-chat__field">
+          <input
+            id="ai-chat-input"
+            type="text"
+            autocomplete="off"
+            [placeholder]="placeholder()"
+            [value]="draft"
+            (input)="draft = $any($event.target).value"
+          />
+          <button type="submit" class="ai-chat__send" aria-label="Send message">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  }
+
+  <button
+    type="button"
+    class="ai-chat__fab"
+    (click)="toggleChat()"
+    [attr.aria-expanded]="chatOpen()"
+    aria-controls="ai-chat-panel"
+    [attr.aria-label]="chatOpen() ? 'Close AI chat' : 'Open AI chat'"
+  >
+    <span class="ai-chat__fab-ring" aria-hidden="true"></span>
+    <span class="ai-chat__fab-bubble" aria-hidden="true">
+      @if (chatOpen()) {
+        <svg class="ai-chat__fab-icon" viewBox="0 0 24 24">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none" />
+        </svg>
+      } @else {
+        <svg class="ai-chat__fab-icon ai-chat__fab-icon--bubble" viewBox="0 0 24 24">
+          <path
+            d="M19 4.5H5A2.5 2.5 0 002.5 7v9A2.5 2.5 0 005 18.5h2.2L10 21l2.8-2.5H19A2.5 2.5 0 0021.5 16V7A2.5 2.5 0 0019 4.5z"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linejoin="round"
+            fill="none"
+          />
+          <path d="M8 9.25h8M8 12.25h5.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+        </svg>
+      }
+    </span>
+  </button>
+</div>

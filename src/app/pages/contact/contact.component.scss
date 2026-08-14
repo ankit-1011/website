@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:host.contact-page {
+  --contact-bg: #0a0a0a;
+  --contact-sage: #a3a3a3;
+  --contact-sage-dim: #737373;
+  --contact-chalk: #f5f5f5;
+  --contact-accent: #00e6ff;
+  --contact-accent-soft: #66eeff;
+  --contact-measure: 66ch;
+  --contact-r: 0;
+  --contact-font-display: 'Fraunces', Georgia, serif;
+  --contact-font-body: 'Space Grotesk', system-ui, sans-serif;
+  --contact-font-label: 'Space Mono', monospace;
+  --contact-text-hero: clamp(36px, 5vw, 58px);
+  --contact-text-heading: clamp(28px, 3.5vw, 42px);
+  --contact-text-lede: 18px;
+  --contact-text-eyebrow: 0.6875rem;
+  --contact-text-caption: 0.75rem;
+
+  display: block;
+  font-family: var(--contact-font-body);
+  -webkit-font-smoothing: antialiased;
+  color: var(--contact-chalk);
+}
+
+.contact-eyebrow {
+  font-family: var(--contact-font-label);
+  font-size: var(--contact-text-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--contact-accent);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.contact-hero-title {
+  font-family: var(--contact-font-display) !important;
+  font-size: var(--contact-text-hero) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.05 !important;
+  color: #fff !important;
+  margin: 0;
+}
+
+.contact-lede {
+  font-family: var(--contact-font-body) !important;
+  font-size: var(--contact-text-lede) !important;
+  color: var(--contact-sage) !important;
+  max-width: var(--contact-measure);
+  margin-top: 1.4rem;
+  line-height: 1.6 !important;
+}
+
+.contact-heading {
+  font-family: var(--contact-font-display) !important;
+  font-size: var(--contact-text-heading) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.1 !important;
+  color: #fff !important;
+  margin: 0;
+}
+
+.contact-subheading {
+  font-family: var(--contact-font-display) !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+  line-height: 1.25 !important;
+  color: #fff !important;
+}
+
+.contact-label {
+  font-family: var(--contact-font-label) !important;
+  font-size: var(--contact-text-caption) !important;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--contact-sage-dim) !important;
+  display: block;
+}
+
+.contact-caption {
+  font-family: var(--contact-font-label) !important;
+  font-size: var(--contact-text-caption) !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--contact-sage-dim) !important;
+}
+
+.contact-value {
+  font-family: var(--contact-font-body) !important;
+  font-size: 1rem !important;
+  font-weight: 500;
+  color: var(--contact-chalk) !important;
+  text-decoration: none;
+  transition: color 0.18s ease;
+
+  &:hover {
+    color: var(--contact-accent) !important;
+  }
+}
+
+.contact-list {
+  font-family: var(--contact-font-body) !important;
+  color: var(--contact-sage) !important;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 1rem !important;
+    line-height: 1.55;
+  }
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  font-family: var(--contact-font-label) !important;
+  font-size: 0.78rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.95rem 1.5rem;
+  border-radius: var(--contact-r);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: var(--contact-sage-dim) !important;
+    cursor: not-allowed;
+    opacity: 0.55;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+.contact-btn--pri {
+  background: var(--contact-accent);
+  color: var(--contact-bg);
+  box-shadow:
+    0 0 0 1px rgba(0, 230, 255, 0.35),
+    0 12px 32px -8px rgba(0, 230, 255, 0.45);
+
+  &:hover:not(:disabled) {
+    background: var(--contact-accent-soft);
+    box-shadow:
+      0 0 0 1px rgba(0, 230, 255, 0.5),
+      0 16px 36px -8px rgba(0, 230, 255, 0.55);
+  }
+}
+
+.space-y-2 {
+  > * + * {
+    margin-top: 0.5rem;
+  }
+}
+
+.space-y-6 {
+  > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.space-y-8 {
+  > * + * {
+    margin-top: 2rem;
+  }
+}
+
+.space-y-3 {
+  > * + * {
+    margin-top: 0.75rem;
+  }
+}
+
+.error {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.05) !important;
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--contact-font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.feature-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--contact-r);
+  background: rgba(0, 230, 255, 0.08);
+  border: 1px solid rgba(0, 230, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1rem;
+    color: var(--contact-accent);
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--contact-r);
+}
+
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  font-family: var(--contact-font-body) !important;
+  font-size: 1rem !important;
+  color: var(--contact-chalk) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: var(--contact-r) !important;
+  backdrop-filter: blur(10px);
+
+  &::placeholder {
+    color: var(--contact-sage-dim);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: var(--contact-accent) !important;
+    box-shadow: 0 0 0 1px rgba(0, 230, 255, 0.25) !important;
+  }
+
+  &.error {
+    background: rgba(239, 68, 68, 0.05) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .lg\:gap-20 {
+    gap: 3rem;
+  }
+}

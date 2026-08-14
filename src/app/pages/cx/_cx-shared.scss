@@ -1,0 +1,22 @@
+:host.cx-page {
+  display: block;
+  min-height: 100vh;
+  padding-top: var(--cx-header-offset);
+  background: var(--cx-surface-dark);
+  color: var(--cx-text-primary);
+  font-family: var(--cx-font-body);
+  font-weight: 400;
+}
+
+.cx-font-display {
+  font-family: var(--cx-font-display);
+}
+
+.cx-font-mono {
+  font-family: var(--cx-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.cx-font-devanagari {
+  font-family: var(--cx-font-devanagari);
+}

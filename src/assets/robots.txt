@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# CX pre-launch: remove this line when environment.cxPageIndexable is enabled.
+Disallow: /cx

@@ -1,0 +1,82 @@
+<div
+  id="cx-nav-panel"
+  class="cx-mega"
+  [class.cx-mega--open]="open"
+  role="menu"
+  aria-label="Customer Experience"
+>
+  <div class="cx-mega__main">
+    <section class="cx-mega__section">
+      <p class="cx-mega__kicker">By job</p>
+      <div class="cx-mega__grid">
+        @for (item of byJob; track item.fragment) {
+          <a
+            class="cx-mega__item"
+            role="menuitem"
+            [routerLink]="[overviewPath]"
+            [fragment]="item.fragment"
+            (click)="onLinkClick()"
+          >
+            <span class="cx-mega__icon" aria-hidden="true">
+              <i [class]="item.icon"></i>
+            </span>
+            <span class="cx-mega__copy">
+              <span class="cx-mega__title-row">
+                <span class="cx-mega__title">{{ item.label }}</span>
+                @if (item.badge) {
+                  <span class="cx-mega__badge">{{ item.badge }}</span>
+                }
+              </span>
+              <span class="cx-mega__desc">{{ item.description }}</span>
+            </span>
+            <i class="fa-solid fa-chevron-right cx-mega__chev" aria-hidden="true"></i>
+          </a>
+        }
+      </div>
+    </section>
+
+    <section class="cx-mega__section cx-mega__section--cap">
+      <p class="cx-mega__kicker">By capability</p>
+      <div class="cx-mega__grid cx-mega__grid--cap">
+        @for (item of byCapability; track item.fragment) {
+          <a
+            class="cx-mega__item cx-mega__item--compact"
+            role="menuitem"
+            [routerLink]="[overviewPath]"
+            [fragment]="item.fragment"
+            (click)="onLinkClick()"
+          >
+            <span class="cx-mega__icon cx-mega__icon--sm" aria-hidden="true">
+              <i [class]="item.icon"></i>
+            </span>
+            <span class="cx-mega__copy">
+              <span class="cx-mega__title">{{ item.label }}</span>
+              <span class="cx-mega__desc">{{ item.description }}</span>
+            </span>
+            <i class="fa-solid fa-chevron-right cx-mega__chev" aria-hidden="true"></i>
+          </a>
+        }
+      </div>
+    </section>
+  </div>
+
+  <aside class="cx-mega__aside">
+    <p class="cx-mega__kicker">Get started</p>
+    @for (card of featured; track card.path) {
+      <a
+        class="cx-mega__card"
+        [class.cx-mega__card--violet]="card.accent === 'violet'"
+        role="menuitem"
+            [routerLink]="[card.path]"
+            [fragment]="card.fragment ?? undefined"
+        (click)="onLinkClick()"
+      >
+        <span class="cx-mega__card-icon" aria-hidden="true">
+          <i [class]="card.icon"></i>
+        </span>
+        <span class="cx-mega__card-title">{{ card.title }}</span>
+        <span class="cx-mega__card-desc">{{ card.description }}</span>
+      </a>
+    }
+  </aside>
+</div>

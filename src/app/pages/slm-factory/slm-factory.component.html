@@ -1,0 +1,273 @@
+<div class="slm-factory" id="top">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow eyebrow--mari">Model Evaluation &amp; Selection</span>
+      <h1>Stop guessing which small model to ship. <em>Prove it.</em></h1>
+      <p class="hero__sub">SLM Factory is one place to discover, benchmark, stress-test, and shortlist small language models, with an AI advisor that reads the evidence for you, and a human-in-the-loop test bench that catches what benchmarks miss. Pick the model you can defend, before you commit compute to it.</p>
+      <div class="btnrow">
+        <a class="btn btn--pri" routerLink="/contact">
+          Evaluate a model
+          <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#workflow">
+          See the workflow, 15 min
+          <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <!-- <div class="hero__strip">
+        <span><b>19</b> models benchmarked like-for-like</span>
+        <span><b>5</b> gates from candidate to shortlist</span>
+        <span><b>1</b> probe that answers "can we actually run this?"</span>
+      </div> -->
+    </div>
+
+    <div class="trace" aria-label="Example evaluation trace">
+      <div class="trace__bar"><i class="dot" aria-hidden="true"></i> Evaluation trace · live <span>candidate · phi-3-mini</span></div>
+      <div class="trace__body">
+        <div class="ln"><span class="ln__t">catalog</span><span class="ln__c">phi-3-mini · synced from Hugging Face</span></div>
+        <div class="ln ln--meta"><span class="ln__t"></span><span class="ln__c">↳ <span class="k">metadata</span> current · id verified <span class="ms">92ms</span></span></div>
+        <div class="ln"><span class="ln__t">benchmark</span><span class="ln__c">MMLU 68.8 · ranks #4 of 19 in class</span></div>
+        <div class="ln ln--meta"><span class="ln__t"></span><span class="ln__c">↳ <span class="k">set</span> curated · like-for-like within small-model class</span></div>
+        <div class="ln"><span class="ln__t">advisor</span><span class="ln__c">"Best fit for your latency budget. Consider qwen-2.5-1.5b as fallback."</span></div>
+        <div class="ln ln--meta"><span class="ln__t"></span><span class="ln__c">↳ <span class="k">grounded in</span> catalog + leaderboard + project context</span></div>
+        <div class="ln"><span class="ln__t ln__t--ok">probe ✓</span><span class="ln__c">inference check · accessible · not gated · provider enabled</span></div>
+        <div class="ln"><span class="ln__t">session</span><span class="ln__c">human review · 12 prompts · approved by reviewer</span></div>
+        <div class="ln ln--meta"><span class="ln__t"></span><span class="ln__c">↳ <span class="k">verdict</span> recorded · qualitative issues: none blocking</span></div>
+        <div class="ln ln--done"><span class="ln__t"></span><span class="ln__c">✓ Shortlisted<span class="sub">evidence attached · 0 spreadsheets harmed · ready for sign-off</span></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PILLARS -->
+<section class="sec sec--why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow eyebrow--mari">Why teams use SLM Factory</span>
+      <p class="sec-head__lede">Catalog, compare, recommend, and verify in one pipeline, so every shortlist comes with evidence attached.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <span class="pillar__n" aria-hidden="true">01</span>
+        <h3 class="h3">One catalog, always current</h3>
+        <p>Every candidate model in one browsable view, metadata synced straight from Hugging Face. No more hand-maintained tracking sheets as your list grows.</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar__n" aria-hidden="true">02</span>
+        <h3 class="h3">Compare apples to apples</h3>
+        <p>A curated leaderboard built for the small-model class, side-by-side rankings you can shortlist from in minutes, not meetings.</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar__n" aria-hidden="true">03</span>
+        <h3 class="h3">Recommendations, grounded</h3>
+        <p>An LLM advisor that reads your catalog and benchmark data and returns a recommendation tied to your project context. Synthesis instead of cross-referencing.</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar__n" aria-hidden="true">04</span>
+        <h3 class="h3">Verified before you build</h3>
+        <p>An inference probe and human-reviewed test sessions stand between "looks promising" and "in production." The gap most teams find three weeks too late.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec sec--tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--mari">The problem</span>
+    <div class="stmt-grid">
+      <h2 class="stmt">Small models are the smart bet. Choosing one is still a <em>coin flip.</em></h2>
+      <p>The economics of small language models are no longer in question, the selection process is. Most teams pick a model off a leaderboard screenshot, discover it's gated or unavailable for inference three weeks in, and never run a single structured human evaluation before production. SLM Factory exists to replace that with evidence.</p>
+    </div>
+    <div class="uc">
+      <div class="uc__item">
+        <span class="uc__n">01</span>
+        <h3 class="h3">Leaderboard roulette</h3>
+        <p>Public benchmarks compare models you can't run, on tasks you don't have. A score without your context is trivia, not evidence.</p>
+      </div>
+      <div class="uc__item">
+        <span class="uc__n">02</span>
+        <h3 class="h3">"Available" isn't available</h3>
+        <p>A model can look perfect on paper and still be gated, blocked, or missing an inference provider. Nobody checks until the integration fails.</p>
+      </div>
+      <div class="uc__item">
+        <span class="uc__n">03</span>
+        <h3 class="h3">Benchmarks miss what humans catch</h3>
+        <p>Tone, refusals, formatting drift, hallucination under your prompts, the failure modes that hurt in production don't show up in an MMLU score.</p>
+      </div>
+      <div class="uc__item">
+        <span class="uc__n">04</span>
+        <h3 class="h3">Evaluation lives in spreadsheets</h3>
+        <p>Catalog tabs, benchmark screenshots, Slack threads of vibes. No shared record of why a model was chosen, or rejected.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="sec sec--dark" id="workflow">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--mari">Do It Once</span>
+    <div class="stmt-grid">
+      <h2 class="stmt">One pipeline from "what's out there" to <em>"ship this one."</em></h2>
+      <p>Every candidate model moves through the same five gates. What comes out the other side isn't an opinion, it's a shortlist with evidence attached, rolled up into one dashboard.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step__n">STEP 01 · CATALOG</span>
+        <h3>Discover</h3>
+        <span class="step__role">Browse every candidate in one place</span>
+        <p>A browsable catalog synced straight from Hugging Face. Model names, IDs and metadata stay current automatically.</p>
+        <ul>
+          <li>Metadata synced from the Hugging Face Hub</li>
+          <li>One entry point for every model under consideration</li>
+          <li>Built for the small-model class, not buried among 400B giants</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step__n">STEP 02 · LEADERBOARD</span>
+        <h3>Compare</h3>
+        <span class="step__role">Shortlist in minutes, not meetings</span>
+        <p>Score candidates against each other on a curated benchmark set, side by side.</p>
+        <ul>
+          <li>Rankings across 19 hand-verified model IDs</li>
+          <li>Like-for-like comparison within the small-model class</li>
+        </ul>
+        <p class="step__note">Scores are a curated, fixed dataset maintained by our team, deliberately stable for apples-to-apples comparison, not live-scraped. Live benchmark ingestion is on the roadmap.</p>
+      </div>
+      <div class="step">
+        <span class="step__n">STEP 03 · ADVISOR</span>
+        <h3>Recommend</h3>
+        <span class="step__role">Synthesis instead of cross-referencing</span>
+        <p>An LLM-powered advisor reads your catalog and benchmark data for you and returns a grounded recommendation.</p>
+        <ul>
+          <li>Grounded in the catalog + leaderboard, not vibes</li>
+          <li>Tied to your company and project context</li>
+          <li>A starting shortlist in one question instead of one sprint</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step__n">STEP 04 · PROBE</span>
+        <h3>Verify</h3>
+        <span class="step__role">Go / no-go before a line of code</span>
+        <p>The inference probe checks whether the model is actually usable on Hugging Face, accessible, not gated, provider enabled.</p>
+        <ul>
+          <li>Catches the "great on paper, dead on arrival" models early</li>
+          <li>One click from catalog entry to go/no-go signal</li>
+          <li>The gap between promising and deployable, surfaced up front</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step__n">STEP 05 · TEST SESSIONS</span>
+        <h3>Validate</h3>
+        <span class="step__role">A human in the loop, on the record</span>
+        <p>Structured test sessions with a human reviewer, because the failure modes that matter don't show up in a benchmark score.</p>
+        <ul>
+          <li>Human-reviewed sessions, not just automated scoring</li>
+          <li>Qualitative issues caught before commitment, not after launch</li>
+          <li>A recorded verdict per model, per session</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step__n">ROLLUP · DASHBOARD</span>
+        <h3>One view</h3>
+        <span class="step__role">Everything in a single place</span>
+        <p>Company context, catalog, advisor output and evaluation state, together on one dashboard.</p>
+        <ul>
+          <li>Set up your company / project once, every view populates from it</li>
+          <li>The shared record of why a model was chosen, or rejected</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec" id="roadmap">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--mari">What's next</span>
+    <div class="stmt-grid">
+      <h2 class="stmt">Evaluation today. The full model lifecycle <em>next.</em></h2>
+      <p>SLM Factory already ships preview views for the next stage of the journey, training curves and deployment tracking. They'll light up as real training and serving integrations land.</p>
+    </div>
+    <div class="ch">
+      <div class="ch__i">
+        <span class="tag">Preview</span>
+        <h3>Training views</h3>
+        <p>Loss-curve visualizations previewing the fine-tuning experience to come.</p>
+      </div>
+      <div class="ch__i">
+        <span class="tag">Preview</span>
+        <h3>Deployment tracking</h3>
+        <p>Rollout progress and status badges previewing real serving integration.</p>
+      </div>
+      <div class="ch__i">
+        <span class="tag">Planned</span>
+        <h3>Live benchmark ingestion</h3>
+        <p>Automated score updates replacing the curated benchmark set.</p>
+      </div>
+    </div>
+    <!-- <div class="rule-note">
+      <p><strong>Same convention as everywhere we build:</strong> nothing is presented as live until it is. Today's training and deployment pages are illustrative previews of the planned experience, not live pipelines — the tags flip as each integration ships.</p>
+    </div> -->
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="sec sec--tight" id="architecture">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--mari">Under the hood</span>
+    <div class="stmt-grid">
+      <h2 class="stmt">Boring where it should be. That's a <em>feature.</em></h2>
+      <p>A conventional, auditable stack your security team already understands, so the interesting decisions stay where they belong: in your model evaluation, not your infrastructure.</p>
+    </div>
+    <div class="int">
+      <div>
+        <h4>Backend</h4>
+        <p>Django 6 + DRF with session auth, data and business logic on a stack teams already trust.</p>
+      </div>
+      <div>
+        <h4>Interface</h4>
+        <p>An Angular 17 SPA, one fast interface layer across catalog, leaderboard, advisor, probe, sessions and dashboard.</p>
+      </div>
+      <div>
+        <h4>Data</h4>
+        <p>PostgreSQL, your evaluation record in a real database, not a spreadsheet.</p>
+      </div>
+      <div>
+        <h4>Hugging Face</h4>
+        <p>Metadata sync for the catalog, plus live availability checks via the inference probe.</p>
+      </div>
+    </div>
+    <!-- <div class="statbar">
+      <span><b>5</b> evaluation gates, one pipeline</span>
+      <span><b>19</b> models on the curated leaderboard</span>
+      <span><b>100%</b> of verdicts recorded, none in spreadsheets</span>
+    </div> -->
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="sec sec--dark final" id="start">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--mari">Get started</span>
+    <h2 class="h2">Pick the model you can <em class="final__em">defend.</em></h2>
+    <p class="tb-lede final__lede">Set up your project context, sync the catalog, and get your first advisor-backed shortlist, with a probe check and a human-reviewed session behind it.</p>
+    <div class="btnrow">
+      <a class="btn btn--pri" routerLink="/contact">
+        Evaluate a model
+        <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" routerLink="/contact">
+        Talk to us
+        <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>

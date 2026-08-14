@@ -1,0 +1,57 @@
+/**
+ * Semantic aliases for sections — always reference primitives/tokens, never hex.
+ */
+:host.cx-page {
+  --cx-surface-dark: var(--petrol-900);
+  --cx-surface-dark-raised: var(--petrol-800);
+  --cx-surface-mid: var(--petrol-700);
+  --cx-surface-accent-band: var(--petrol-600);
+  --cx-surface-light: var(--chalk-1);
+  --cx-surface-light-muted: var(--chalk-2);
+  --cx-surface-light-border: var(--chalk-3);
+  --cx-text-primary: var(--chalk-1);
+  --cx-text-primary-on-light: var(--ink);
+  --cx-text-muted: var(--slate);
+  --cx-text-accent: var(--marigold);
+  --cx-text-accent-soft: var(--marigold-soft);
+  --cx-text-secondary: var(--sage);
+  --cx-accent: var(--marigold);
+  --cx-accent-soft: var(--marigold-soft);
+  --cx-accent-on: var(--ink);
+
+  /* Default section theming (overridden by --dark / --light modifiers) */
+  --cx-section-bg: var(--cx-surface-dark);
+  --cx-section-text: var(--cx-text-primary);
+  --cx-section-text-muted: var(--chalk-3);
+  --cx-section-accent: var(--cx-accent);
+  --cx-section-border: color-mix(in srgb, var(--chalk-1) 12%, transparent);
+}
+
+:host.cx-page .sec--light {
+  --cx-section-bg: var(--cx-surface-light);
+  --cx-section-text: var(--cx-text-primary-on-light);
+  --cx-section-text-muted: var(--cx-text-muted);
+  --cx-section-border: color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+:host.cx-page .sec--dark {
+  --cx-section-bg: var(--cx-surface-dark);
+  --cx-section-text: var(--cx-text-primary);
+  --cx-section-text-muted: var(--chalk-3);
+  --cx-section-border: color-mix(in srgb, var(--chalk-1) 12%, transparent);
+}
+
+/* Legacy aliases (prefer .sec--dark / .sec--light on .sec) */
+:host.cx-page .cx-section--light {
+  --cx-section-bg: var(--cx-surface-light);
+  --cx-section-text: var(--cx-text-primary-on-light);
+  --cx-section-text-muted: var(--cx-text-muted);
+  --cx-section-border: color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+:host.cx-page .cx-section--dark {
+  --cx-section-bg: var(--cx-surface-dark);
+  --cx-section-text: var(--cx-text-primary);
+  --cx-section-text-muted: var(--chalk-3);
+  --cx-section-border: color-mix(in srgb, var(--chalk-1) 12%, transparent);
+}

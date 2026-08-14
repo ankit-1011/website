@@ -1,0 +1,67 @@
+@use 'cx-primitives';
+
+/**
+ * Spacing scale, radius, and prototype layout variables (--wrap / --gut / --sec-y).
+ */
+:host.cx-page {
+  /* Layout (prototype names) */
+  --wrap: 72rem;
+  --gut: clamp(1rem, 2.5vw, 1.5rem);
+  --sec-y: clamp(3rem, 6vw, 5rem);
+  --sec-y-compact: clamp(2rem, 4vw, 3rem);
+  --sec-y-tight: clamp(1.75rem, 4vw, 2.75rem);
+  --sec-y-tight-compact: clamp(1.25rem, 3vw, 2rem);
+
+  /* Site chrome offsets (header + anchor scroll) */
+  --cx-header-offset: 6rem;
+  --cx-scroll-margin: var(--cx-header-offset);
+
+  /* Spacing scale */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Radius */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* Typography stacks (self-hosted under /assets/cx/fonts) */
+  --cx-font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --cx-font-body: 'Instrument Sans', system-ui, sans-serif;
+  --cx-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --cx-font-devanagari: 'Noto Sans Devanagari', var(--cx-font-body);
+
+  /* CTA control */
+  --cx-cta-min-height: 2.5rem;
+  --cx-cta-padding-inline: var(--space-6);
+  --cx-cta-font-size: 1rem;
+  --cx-cta-radius: var(--radius-md);
+  --cx-cta-font-weight: 600;
+  --cx-cta-lift: -0.125rem;
+  --cx-cta-transition: 0.2s ease;
+  --cx-cta-shadow-hover: 0 0.35rem 1rem color-mix(in srgb, var(--ink) 22%, transparent);
+  --cx-cta-focus-ring-width: 2px;
+  --cx-cta-focus-ring-offset: 2px;
+  --cx-cta-focus-ring-color: var(--marigold);
+}
+
+@media (max-width: 768px) {
+  :host.cx-page {
+    --cx-cta-min-height: 2.75rem;
+  }
+}

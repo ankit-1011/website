@@ -1,0 +1,15 @@
+<div class="app-container">
+  <!-- <app-scroll-progress></app-scroll-progress> -->
+  @if (showSiteHeader()) {
+    <app-header></app-header>
+  }
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  @if (showSiteFooter()) {
+    <app-footer></app-footer>
+  }
+  <app-toast></app-toast>
+  <app-ai-chat-widget></app-ai-chat-widget>
+</div>
+

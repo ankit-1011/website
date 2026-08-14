@@ -1,0 +1,23 @@
+/**
+ * CX prototype palette — sole file allowed to contain hex literals.
+ * Sync values with the design prototype / Figma source of truth.
+ */
+:host.cx-page {
+  /* Petrol scale */
+  --petrol-900: #0a2523;
+  --petrol-800: #0f3330;
+  --petrol-700: #154440;
+  --petrol-600: #1c5752;
+
+  /* Neutrals & surfaces */
+  --sage: #9cb4a0;
+  --chalk-1: #faf9f6;
+  --chalk-2: #f2f0ea;
+  --chalk-3: #e6e2d9;
+  --ink: #121615;
+  --slate: #5c6b73;
+
+  /* Accent */
+  --marigold: #e8a317;
+  --marigold-soft: #f5dcaa;
+}

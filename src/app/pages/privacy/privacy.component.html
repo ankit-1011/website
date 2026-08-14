@@ -1,0 +1,31 @@
+<!-- Hero Section -->
+<section class="hero-section relative min-h-[100vh] flex items-center overflow-hidden pt-32">
+  <!-- Particle Canvas Background -->
+  <canvas #particleCanvas class="particle-canvas"></canvas>
+
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-hero-gradient"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+
+  <!-- Animated Orbs -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-glow-secondary/20 rounded-full blur-[100px] animate-pulse-slow"
+    style="animation-delay: 1s;"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto text-center fade-in-up">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-display mb-6">
+        Privacy Policy — <span class="gradient-text">In Development</span>
+      </h1>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-10">
+        We're building this page with transparency and privacy-first principles. Please check back soon.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-up" style="animation-delay: 0.2s;">
+        <a routerLink="/" class="cta-button text-base px-6 py-3 gap-2 flex items-center">
+          Back to Home
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

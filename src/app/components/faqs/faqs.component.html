@@ -1,0 +1,51 @@
+<div class="flex flex-col items-center text-center px-4 py-10">
+  <h1 class="text-3xl md:text-6xl font-semibold mt-2">
+    Frequently Asked Questions
+  </h1>
+
+  <div class="max-w-3xl w-full mt-8 flex flex-col gap-4 text-left">
+    <div
+      *ngFor="let faq of faqsData; let i = index"
+      class="flex flex-col w-full"
+    >
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between w-full cursor-pointer bg-black border border-gray-600 p-6 rounded transition-all"
+        (click)="toggleFaq(i)"
+      >
+        <h2 class="text-base">{{ faq.question }}</h2>
+
+        <svg
+          class="transition-all duration-500 ease-in-out"
+          [class.rotate-180]="openIndex === i"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+        >
+          <path
+            d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2"
+            stroke="#1D293D"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <!-- Answer -->
+      <p
+        class="text-base text-slate-300 px-4 overflow-hidden transition-all duration-500 ease-in-out"
+        [class.max-h-0]="openIndex !== i"
+        [class.opacity-0]="openIndex !== i"
+        [class.-translate-y-2]="openIndex !== i"
+        [class.max-h-[300px]]="openIndex === i"
+        [class.opacity-100]="openIndex === i"
+        [class.translate-y-0]="openIndex === i"
+        [class.pt-4]="openIndex === i"
+      >
+        {{ faq.answer }}
+      </p>
+    </div>
+  </div>
+</div>

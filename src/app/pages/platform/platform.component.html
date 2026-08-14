@@ -1,0 +1,335 @@
+<div class="tb-platform">
+  <div class="tb-grain" aria-hidden="true"></div>
+
+  <!-- Sticky section nav -->
+  <nav
+    class="tb-sticky-nav"
+    [class.tb-sticky-nav--visible]="navVisible"
+    aria-label="Page sections"
+  >
+    <div class="tb-sticky-nav__inner">
+      @for (item of sectionNav; track item.id) {
+        <a
+          [href]="'#' + item.id"
+          class="tb-sticky-nav__link"
+          [class.is-active]="activeSection === item.id"
+        >{{ item.label }}</a>
+      }
+    </div>
+  </nav>
+
+  <!-- Hero — Aceternity-style -->
+  <section class="tb-hero tb-page-hero">
+    <div class="tb-hero__grid-bg" aria-hidden="true"></div>
+    <div class="tb-hero__stars" aria-hidden="true"></div>
+    <div class="tb-hero__horizon" aria-hidden="true"></div>
+    <span class="tb-hero__watermark" aria-hidden="true">Trustbridge</span>
+
+    <div class="tb-wrap tb-hero__inner">
+      <div class="tb-hero__badge">
+        <span class="tb-hero__badge-pill">Trustbridge Platform</span>
+        <span class="tb-hero__badge-tail">New capabilities every release</span>
+      </div>
+
+      <div class="tb-hero__layout">
+        <div class="tb-hero__copy">
+          <h1>
+            Build agents in a visual studio. <em>Govern</em> every action they take.
+          </h1>
+
+          <p class="tb-hero__lede">
+            Trustbridge gives platform and product teams one place to design and orchestrate agent workflows, then
+            enforce policy at runtime and produce an audit trail your security and compliance teams accept.
+          </p>
+
+          <div class="tb-two-cta">
+            <a routerLink="/contact" class="tb-hero__cta">
+              <span class="tb-hero__cta-icon" aria-hidden="true"></span>
+              Request demo
+            </a>
+            <a href="#demo" class="tb-btn tb-btn-ghost">Watch 2-min walkthrough</a>
+            <a href="#how-it-works" class="tb-btn tb-btn-ghost">View docs</a>
+          </div>
+
+          <div class="tb-hero__strip">
+            @for (stat of heroStats; track stat.label) {
+              <span><b>{{ stat.value }}</b> {{ stat.label }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="tb-hero__visual">
+          <div class="tb-trace" aria-label="Example workflow governance trace">
+            <div class="tb-trace__bar">
+              <i class="tb-trace__dot" aria-hidden="true"></i>
+              Workflow trace · live
+              <span>refund-agent · prod</span>
+            </div>
+            <div class="tb-trace__body">
+              <div class="tb-ln" style="animation-delay: 0.1s">
+                <span class="tb-ln__t">studio</span>
+                <span class="tb-ln__c">refund workflow v3 · deployed 09:14 UTC</span>
+              </div>
+              <div class="tb-ln tb-ln--meta" style="animation-delay: 0.22s">
+                <span class="tb-ln__t"></span>
+                <span class="tb-ln__c">↳ <span class="k">step</span> lookup_order · tool call queued <span class="ms">84ms</span></span>
+              </div>
+              <div class="tb-ln" style="animation-delay: 0.34s">
+                <span class="tb-ln__t">policy</span>
+                <span class="tb-ln__c">PII scan passed · refund ceiling within limit</span>
+              </div>
+              <div class="tb-ln tb-ln--meta" style="animation-delay: 0.46s">
+                <span class="tb-ln__t"></span>
+                <span class="tb-ln__c">↳ <span class="k">rule</span> deny-by-default · policy v2.4.1 · allowed</span>
+              </div>
+              <div class="tb-ln" style="animation-delay: 0.58s">
+                <span class="tb-ln__t">gateway</span>
+                <span class="tb-ln__c">routed to gpt-4o-mini · fallback chain armed</span>
+              </div>
+              <div class="tb-ln tb-ln--meta" style="animation-delay: 0.7s">
+                <span class="tb-ln__t"></span>
+                <span class="tb-ln__c">↳ <span class="k">cost</span> $0.003 · latency 412ms · logged</span>
+              </div>
+              <div class="tb-ln" style="animation-delay: 0.82s">
+                <span class="tb-ln__t tb-ln__t--ok">audit ✓</span>
+                <span class="tb-ln__c">decision record saved · queryable · reviewer notified</span>
+              </div>
+              <div class="tb-ln tb-ln--done" style="animation-delay: 0.94s">
+                <span class="tb-ln__t"></span>
+                <span class="tb-ln__c">✓ Action governed<span class="sub">evidence attached · 0 policy bypasses</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust badges -->
+  <div class="tb-trust tb-reveal">
+    <div class="tb-wrap">
+      <ul class="tb-trust__list">
+        @for (badge of trustBadges; track badge.label) {
+          <li class="tb-trust__item">
+            <i [class]="badge.faIcon" aria-hidden="true"></i>
+            {{ badge.label }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Capabilities -->
+  <section id="capabilities" class="tb-section tb-section-alt tb-capabilities">
+    <div class="tb-wrap">
+      <div class="tb-sec-head tb-reveal">
+        <span class="tb-eyebrow">Platform Capabilities</span>
+        <h2>Everything to design, orchestrate, and govern agents at scale.</h2>
+        <p>
+          Build visually if you want to, but every capability is wired into the same control layer: policy, evidence,
+          and authority over what your agents do. Teams define and verify their own guardrails.
+        </p>
+      </div>
+
+      <div class="tb-bento">
+        @for (cap of capabilities; track cap.id) {
+          <a
+            [id]="'cap-' + cap.id"
+            [href]="cap.anchor"
+            class="tb-cap tb-bento__cell tb-cap--link tb-reveal"
+          >
+            <div class="tb-cap__preview" aria-hidden="true">
+              <span class="tb-cap__preview-label">{{ cap.preview }}</span>
+            </div>
+            <div class="tb-ic">
+              @switch (cap.id) {
+                @case ('studio') {
+                  <svg viewBox="0 0 24 24"><path d="M9 3H4v5M15 3h5v5M9 21H4v-5M15 21h5v-5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>
+                }
+                @case ('orchestration') {
+                  <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.6 7.6L11 16M16.4 7.6L13 16"/></svg>
+                }
+                @case ('policy') {
+                  <svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
+                }
+                @case ('authority') {
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>
+                }
+                @case ('audit') {
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="2.4"/></svg>
+                }
+                @case ('gateway') {
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="8" y="14" width="7" height="7" rx="1.5"/></svg>
+                }
+                @case ('fallback') {
+                  <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-9-9"/><path d="M21 3v6h-6"/></svg>
+                }
+                @default {
+                  <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+                }
+              }
+            </div>
+            <h3>{{ cap.title }}</h3>
+            <p>{{ cap.description }}</p>
+            <span class="tb-cap__link-label">Learn more →</span>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="tb-section tb-how">
+    <div class="tb-wrap">
+      <div class="tb-sec-head tb-reveal">
+        <span class="tb-eyebrow">How It Works</span>
+        <h2>Design → Govern → Audit. Three steps, one platform.</h2>
+        <p>Every agent workflow moves through the same control layer — from visual design to runtime enforcement to evidence.</p>
+      </div>
+
+      <ol class="tb-steps tb-reveal">
+        @for (step of howItWorks; track step.step) {
+          <li class="tb-step">
+            <span class="tb-step__n">{{ step.step }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Customer stories -->
+  <section id="stories" class="tb-section tb-section-alt tb-stories">
+    <div class="tb-wrap">
+      <div class="tb-sec-head tb-reveal">
+        <span class="tb-eyebrow">Customer Stories</span>
+        <h2>Teams that needed control, not just observability.</h2>
+      </div>
+
+      <div class="tb-stories__grid">
+        @for (story of customerStories; track story.industry) {
+          <blockquote class="tb-story tb-reveal">
+            <span class="tb-story__tag">{{ story.industry }}</span>
+            <p>"{{ story.quote }}"</p>
+            <footer>{{ story.outcome }}</footer>
+          </blockquote>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits" class="tb-section">
+    <div class="tb-wrap">
+      <div class="tb-sec-head tb-reveal">
+        <span class="tb-eyebrow">Why Teams Choose Trustbridge</span>
+        <h2>Control and reliability you can put your name behind.</h2>
+        <p>We've softened the marketing math to what we can defend. The value is in the capability, not a headline percentage.</p>
+      </div>
+      <div class="tb-cap-grid tb-cap-grid--4">
+        <div class="tb-cap tb-reveal">
+          <div class="tb-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg></div>
+          <h3>Accountable by design</h3>
+          <p>Every agent action is governed, logged, and explainable, so a decision can be defended, not just observed.</p>
+        </div>
+        <div class="tb-cap tb-reveal">
+          <div class="tb-ic"><svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
+          <h3>Adoptable without rip-and-replace</h3>
+          <p>Drops into your existing stack and orchestrator. Govern the agents you already run, no rewrite.</p>
+        </div>
+        <div class="tb-cap tb-reveal">
+          <div class="tb-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Built for resilient production</h3>
+          <p>Redundant infrastructure with automatic failover. High-availability targets backed by real architecture, not a round number.</p>
+        </div>
+        <div class="tb-cap tb-reveal">
+          <div class="tb-ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 6-7"/><path d="M3 21h18"/></svg></div>
+          <h3>Cost-aware routing</h3>
+          <p>Multi-model routing with per-step cost tracking, control spend with visibility, rather than promising a fixed cut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations -->
+  <section id="integrations" class="tb-section tb-section-alt tb-integrations-banner">
+    <div class="tb-wrap">
+      <div class="tb-sec-head tb-reveal">
+        <span class="tb-eyebrow">Integrations &amp; Compatibility</span>
+        <h2>Connects to the stack you already run.</h2>
+        <p>Framework-agnostic and OpenTelemetry-friendly, Trustbridge governs your agents without forcing a migration.</p>
+      </div>
+    </div>
+    <div class="tb-int-marquee-zone tb-reveal">
+      @for (group of integrationGroups; track group.label; let idx = $index) {
+        <div class="tb-int-marquee-row">
+          <div class="tb-int-marquee-row__label">
+            <span class="tb-lab">{{ group.label }}</span>
+          </div>
+          <div
+            class="tb-int-marquee"
+            [class.tb-int-marquee--reverse]="idx % 2 === 1"
+            [attr.aria-label]="group.label"
+          >
+            <div
+              class="tb-int-marquee__track"
+              [style.--tb-marquee-duration]="marqueeDuration(group)"
+            >
+              @for (item of duplicateMarqueeItems(group.items); track $index) {
+                <span class="tb-int tb-int--marquee">
+                  <span
+                    class="tb-int__mark"
+                    [style.--tb-int-mark-bg]="item.iconBg ?? 'rgba(255, 255, 255, 0.08)'"
+                  >
+                    @if (item.iconSrc) {
+                      <img
+                        class="tb-int__logo"
+                        [class.tb-int__logo--mono]="item.iconMono"
+                        [src]="item.iconSrc"
+                        [alt]="item.label"
+                        width="18"
+                        height="18"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
+                      />
+                    } @else if (item.faIcon) {
+                      <i class="tb-int__icon" [class]="item.faIcon" aria-hidden="true"></i>
+                    }
+                  </span>
+                  <span class="tb-int__label">{{ item.label }}</span>
+                </span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- See It Live -->
+  <section class="tb-final" id="demo">
+    <div class="tb-final__grid" aria-hidden="true"></div>
+    <div class="tb-final__glow" aria-hidden="true"></div>
+    <span class="tb-final__corner tb-final__corner--tl" aria-hidden="true"></span>
+    <span class="tb-final__corner tb-final__corner--tr" aria-hidden="true"></span>
+    <span class="tb-final__corner tb-final__corner--bl" aria-hidden="true"></span>
+    <span class="tb-final__corner tb-final__corner--br" aria-hidden="true"></span>
+    <div class="tb-wrap tb-final__inner">
+      <span class="tb-final__eyebrow">✦ See It Live</span>
+      <h2>See your own workflow <span>governed</span> end to end.</h2>
+      <p>
+        Book a walkthrough and our team will run one of your agent flows through the studio, the policy layer, and a
+        live decision record.
+      </p>
+      <div class="tb-two-cta tb-two-cta-center">
+        <a routerLink="/contact" class="tb-btn tb-btn-primary tb-final__btn">
+          Request demo
+          <svg class="tb-btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how-it-works" class="tb-btn tb-btn-ghost">View docs</a>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,37 @@
+:host.cx-page .cx-ph-audit-panel {
+  position: fixed;
+  z-index: 1000;
+  right: var(--gut);
+  bottom: var(--gut);
+  width: min(24rem, calc(100vw - 2 * var(--gut)));
+  max-height: min(40vh, 20rem);
+  overflow: auto;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--petrol-800);
+  border: 1px solid color-mix(in srgb, var(--marigold) 50%, transparent);
+  color: var(--chalk-1);
+  font-family: var(--cx-font-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  box-shadow: var(--cx-cta-shadow-hover);
+}
+
+:host.cx-page .cx-ph-audit-panel__title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--cx-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--marigold-soft);
+}
+
+:host.cx-page .cx-ph-audit-panel__list {
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-5);
+}
+
+:host.cx-page .cx-ph-audit-panel__hint {
+  margin: 0;
+  color: var(--chalk-3);
+  font-size: 0.6875rem;
+}

@@ -1,0 +1,48 @@
+<div class="site-footer-block">
+  @if (showFooterCta) {
+    <!-- Get Started (CX Solutions style) -->
+    <section class="site-footer-cta" id="final">
+    <div class="site-footer-wrap">
+      <span class="site-footer-eyebrow">Get started</span>
+      <h2 class="site-footer-h2">Bring us your worst call type.</h2>
+      <p class="site-footer-lede">
+        Not the FAQ one. The messy, three-transfer, four-system one your team dreads on Monday mornings. We'll build an
+        agent for it on a 30-minute call, ground it in your own policy document, and let you call it yourself before
+        you commit to anything.
+      </p>
+      <div class="site-footer-btnrow">
+        <a routerLink="/contact" (click)="scrollToTop()" class="site-footer-btn site-footer-btn--pri">
+          Book a build session
+          <svg class="site-footer-btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a routerLink="/cx-solutions" fragment="demo" (click)="scrollToTop()" class="site-footer-btn site-footer-btn--ghost">
+          Call a live agent
+          <svg class="site-footer-btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="site-footer-muted">No procurement process · No slide deck · No pilot fee</p>
+    </div>
+  </section>
+  }
+
+  <footer class="site-foot">
+    <div class="site-foot__bar">
+      <div class="site-footer-wrap site-foot__bar-in">
+        <span class="site-foot__copy"><span class="site-foot__copy-mark" aria-hidden="true">©</span> {{ currentYear }} DIOnce.AI. All rights reserved.</span>
+        <div class="site-foot__legal">
+          <a routerLink="/terms-of-services" (click)="scrollToTop()">Terms &amp; Conditions</a>
+          <a routerLink="/privacy-policy" (click)="scrollToTop()">Privacy Policy</a>
+          <a
+            href="https://www.linkedin.com/company/dionce/posts/?feedView=all"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="DIOnce on LinkedIn"
+          >
+            <i class="fa-brands fa-linkedin site-foot__social-icon" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
